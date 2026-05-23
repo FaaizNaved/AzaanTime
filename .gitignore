@@ -1,0 +1,22 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/NamazTimeApp.Application.API/appsettings.json
+/NamazTimeApp.Application.API/appsettings.Development.json
+/NamazTimeApp.Notification.API/appsettings.json
+/NamazTimeApp.Notification.API/appsettings.Development.json
+
+.vs/
+
+# Ignore build outputs
+**/bin/
+**/obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Others
+*.log
