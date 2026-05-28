@@ -26,7 +26,6 @@
   <ItemGroup>
     <ProjectReference Include="..\NamazTimeApp.Infrastructure.Data\NamazTimeApp.Infrastructure.Data.csproj" />
   </ItemGroup>
-  </ItemGroup>
 	
 
 </Project>
