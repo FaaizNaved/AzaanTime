@@ -6,9 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Injections\" />
-    <Folder Include="MappingProfiles\" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="16.1.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.25" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\NamazTimeApp.Audit.Data\NamazTimeApp.Audit.Data.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Core.Infrastructure\NamazTimeApp.Core.Infrastructure.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Infrastructure.Data\NamazTimeApp.Infrastructure.Data.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Master.Service\NamazTimeApp.Master.Service.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Notification.Service\NamazTimeApp.Notification.Service.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Transaction.Service\NamazTimeApp.Transaction.Service.csproj" />
+	</ItemGroup>
 
 </Project>

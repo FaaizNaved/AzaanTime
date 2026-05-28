@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+	  <PackageReference Include="AutoMapper" Version="16.1.1" />
+	  <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.17.0" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.17.0" />
+  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\NamazTimeApp.Common.Service\NamazTimeApp.Common.Service.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Infrastructure.Data\NamazTimeApp.Infrastructure.Data.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Master.Contracts\NamazTimeApp.Master.Contracts.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Master.Data\NamazTimeApp.Master.Data.csproj" />
+	</ItemGroup>
 </Project>

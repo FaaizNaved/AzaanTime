@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+	  <PackageReference Include="AutoMapper" Version="16.1.1" />
+  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\NamazTimeApp.Common.Service\NamazTimeApp.Common.Service.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Core.Infrastructure\NamazTimeApp.Core.Infrastructure.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Core\NamazTimeApp.Core.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Infrastructure.Data\NamazTimeApp.Infrastructure.Data.csproj" />
+	</ItemGroup>
+
 </Project>

@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<ItemGroup>
+		<Compile Remove="Helpers\MappingExtensions.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="Helpers\MappingExtensions.cs" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include="..\NamazTimeApp.Core\NamazTimeApp.Core.csproj" />
+	</ItemGroup>
+
 </Project>

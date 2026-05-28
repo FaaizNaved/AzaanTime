@@ -24,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NamazTimeApp.Core", "NamazTimeApp.Core\NamazTimeApp.Core.csproj", "{C256C9AD-2232-4A2D-A8AC-FC58F8E60F1E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NamazTimeApp.Core.Data", "NamazTimeApp.Core.Data\NamazTimeApp.Core.Data.csproj", "{1579CEFF-8A6E-41D0-ABC8-FA2585B90FBD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{86F3D32F-F81D-412D-AB0E-9AD3A24AE31C} = {86F3D32F-F81D-412D-AB0E-9AD3A24AE31C}
+		{C256C9AD-2232-4A2D-A8AC-FC58F8E60F1E} = {C256C9AD-2232-4A2D-A8AC-FC58F8E60F1E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NamazTimeApp.Core.Infrastructure", "NamazTimeApp.Core.Infrastructure\NamazTimeApp.Core.Infrastructure.csproj", "{176D5630-8A14-4050-8607-357B80103CFB}"
 EndProject
@@ -40,6 +44,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NamazTimeApp.Notification.Service", "NamazTimeApp.Notification.Service\NamazTimeApp.Notification.Service.csproj", "{B89B8469-CE2A-4658-BB4A-F665F54DE779}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NamazTimeApp.Transaction.Service", "NamazTimeApp.Transaction.Service\NamazTimeApp.Transaction.Service.csproj", "{C236D748-A5CA-408B-A6AB-90AA64A81D23}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1A028B81-7F8D-426A-AD39-9951A8EA9032} = {1A028B81-7F8D-426A-AD39-9951A8EA9032}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NamazTimeApp.Common.Contracts", "NamazTimeApp.Common.Contracts\NamazTimeApp.Common.Contracts.csproj", "{9B5192CA-1EF6-45DD-8B77-8607E32D5613}"
 EndProject
