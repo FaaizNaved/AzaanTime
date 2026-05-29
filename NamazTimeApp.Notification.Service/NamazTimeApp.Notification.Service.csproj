@@ -14,7 +14,7 @@
   </ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\NamazTimeApp.Common.Service\NamazTimeApp.Common.Service.csproj" />
-		<ProjectReference Include="..\NamazTimeApp.Infrastructure.Data\NamazTimeApp.Infrastructure.Data.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Infrastructure\NamazTimeApp.Infrastructure.Data.csproj" />
 		<ProjectReference Include="..\NamazTimeApp.Notification.Contracts\NamazTimeApp.Notification.Contracts.csproj" />
 	</ItemGroup>
 

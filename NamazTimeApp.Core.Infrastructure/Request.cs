@@ -2,6 +2,6 @@
 {
     public class Request<TModel>
     {
-        public TModel Model { get; set; }
+        public TModel Model { get; set; } = default!;
     }
 }

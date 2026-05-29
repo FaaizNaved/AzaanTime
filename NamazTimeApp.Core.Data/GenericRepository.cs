@@ -38,7 +38,7 @@ namespace NamazTimeApp.Core.Data
         /// </returns>
         public virtual TEntity Get(TKey id)
         {
-            return _table.Find(id);
+            return _table.Find(id)!;
         }
 
         /// <summary>

@@ -2,7 +2,7 @@
 {
     public class Response<TModel> : ResponseBase
     {
-        public TModel Model { get; set; }
+        public TModel Model { get; set; } = default!;
 
         public int TotalRows { get; set; }
 

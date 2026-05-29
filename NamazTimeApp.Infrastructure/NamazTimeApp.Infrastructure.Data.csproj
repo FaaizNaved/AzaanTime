@@ -18,6 +18,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\NamazTimeApp.Master.Data\NamazTimeApp.Master.Data.csproj" />
 		<ProjectReference Include="..\NamazTimeApp.Master\NamazTimeApp.Master.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Notification.Data\NamazTimeApp.Notification.Data.csproj" />
+		<ProjectReference Include="..\NamazTimeApp.Notification\NamazTimeApp.Notification.csproj" />
 		<ProjectReference Include="..\NamazTimeApp.Transaction.Data\NamazTimeApp.Transaction.Data.csproj" />
 		<ProjectReference Include="..\NamazTimeApp.Transaction\NamazTimeApp.Transaction.csproj" />
 	</ItemGroup>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,11 +7,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.1" />
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.1" />
+    <PackageReference Include="AWSSDK.S3" Version="4.0.23" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.25" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.17.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.17.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Middleware\" />
+    <ProjectReference Include="..\NamazTimeApp.Audit.Data\NamazTimeApp.Audit.Data.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Core.Data\NamazTimeApp.Core.Data.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Core.Infrastructure\NamazTimeApp.Core.Infrastructure.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Core\NamazTimeApp.Core.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Data.Infrastructure\NamazTimeApp.Data.Infrastructure.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Data.Audit\NamazTimeApp.Data.Audit.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Master.Contracts\NamazTimeApp.Master.Contracts.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Master.Data\NamazTimeApp.Master.Data.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Master.Service\NamazTimeApp.Master.Service.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Notification.Contracts\NamazTimeApp.Notification.Contracts.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Notification.Service\NamazTimeApp.Notification.Service.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Presentation.Shared\NamazTimeApp.Presentation.Shared.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Realtime\NamazTimeApp.Realtime.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Transaction.Data\NamazTimeApp.Transaction.Data.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Transaction.Contracts\NamazTimeApp.Transaction.Contracts.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Transaction.Service\NamazTimeApp.Transaction.Service.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Transaction\NamazTimeApp.Transaction.csproj" />
   </ItemGroup>
 
 </Project>

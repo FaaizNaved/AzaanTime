@@ -9,7 +9,7 @@
         /// <value>
         /// The name of the field.
         /// </value>
-        public string FieldName { get; set; }
+        public string FieldName { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets message value.
@@ -17,7 +17,7 @@
         /// <value>
         /// The message value.
         /// </value>
-        public string Value { get; set; }
+        public string Value { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets the type of the message.
