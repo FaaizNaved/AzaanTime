@@ -20,6 +20,11 @@ namespace NamazTimeApp.Data.Infrastructure
             _configuration = configuration;
         }
 
+        public AppMigrationDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
+        {
+        }
+
         public AppMigrationDbContext(
             DbContextOptions<AppDbContext> options,
             IConfiguration configuration)

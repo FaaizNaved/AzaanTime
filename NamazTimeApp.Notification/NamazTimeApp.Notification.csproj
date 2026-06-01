@@ -9,6 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\NamazTimeApp.Core.Data\NamazTimeApp.Core.Data.csproj" />
     <ProjectReference Include="..\NamazTimeApp.Core\NamazTimeApp.Core.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Master\NamazTimeApp.Master.csproj" />
+    <ProjectReference Include="..\NamazTimeApp.Transaction\NamazTimeApp.Transaction.csproj" />
   </ItemGroup>
 
 </Project>

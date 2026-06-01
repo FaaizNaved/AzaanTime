@@ -1,6 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using NamazTimeApp.Master;
+using NamazTimeApp.Notification;
+using NamazTimeApp.Transaction;
 
 namespace NamazTimeApp.Infrastructure.Data
 {
@@ -93,11 +96,26 @@ namespace NamazTimeApp.Infrastructure.Data
             return Set<TEntity>();
         }
 
+        public DbSet<Location> Locations => Set<Location>();
+
+        public DbSet<PrayerType> PrayerTypes => Set<PrayerType>();
+
+        public DbSet<AppSetting> AppSettings => Set<AppSetting>();
+
+        public DbSet<PrayerTime> PrayerTimes => Set<PrayerTime>();
+
+        public DbSet<DeviceRegistration> DeviceRegistrations => Set<DeviceRegistration>();
+
+        public DbSet<NotificationLog> NotificationLogs => Set<NotificationLog>();
+
         public DbContext DbContext => this;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(NamazTimeApp.Master.Data.Configurations.LocationConfiguration).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(NamazTimeApp.Transaction.Data.Configurations.PrayerTimeConfiguration).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(NamazTimeApp.Notification.Data.Configurations.NotificationLogConfiguration).Assembly);
         }
     }
 }
