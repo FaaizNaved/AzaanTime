@@ -16,7 +16,7 @@ namespace NamazTimeApp.Data.Infrastructure.Extensions
             try
             {
                 appContext.Database.Migrate();
-                DataSeeder.Seed();
+                DataSeeder.Seed(appContext);
             }
             catch (Exception ex)
             {
