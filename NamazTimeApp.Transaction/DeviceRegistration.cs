@@ -19,6 +19,9 @@ public class DeviceRegistration : EntityBase
 
     public bool NotificationEnabled { get; set; }
 
+    /// <summary>JSON payload of per-prayer notification preferences (enabled, volume).</summary>
+    public string? PrayerPreferencesJson { get; set; }
+
     public DateTime LastSeenOn { get; set; }
 
     public Location? Location { get; set; }

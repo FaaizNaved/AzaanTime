@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NamazTimeApp.Core\NamazTimeApp.Core.csproj" />
+  </ItemGroup>
+
 </Project>

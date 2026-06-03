@@ -17,6 +17,7 @@ public class DeviceRegistrationConfiguration : IEntityTypeConfiguration<DeviceRe
         builder.Property(x => x.CurrentFcmToken).HasColumnType("text");
         builder.Property(x => x.AppVersion).HasMaxLength(20).IsRequired();
         builder.Property(x => x.NotificationEnabled).IsRequired();
+        builder.Property(x => x.PrayerPreferencesJson).HasColumnType("text");
         builder.Property(x => x.LastSeenOn).IsRequired();
         builder.Property(x => x.RECORD_SOURCE_NAME).HasMaxLength(100);
 

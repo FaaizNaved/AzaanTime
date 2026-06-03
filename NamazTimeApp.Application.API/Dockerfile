@@ -12,8 +12,8 @@ RUN dotnet publish NamazTimeApp.Application.API/NamazTimeApp.Application.API.csp
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 
-ENV ASPNETCORE_URLS=http://+:5001
-EXPOSE 5001
+ENV ASPNETCORE_URLS=http://+:5199
+EXPOSE 5199
 
 COPY --from=build /app/publish .
 
