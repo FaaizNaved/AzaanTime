@@ -1,7 +1,5 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NamazTimeApp.Notification.Contracts;
-using NamazTimeApp.Notification.Service;
 
 namespace NamazTimeApp.Presentation.Shared.Injections;
 
@@ -21,18 +19,13 @@ public static class OptionsInjection
         return services;
     }
 
+    /// <summary>
+    /// Adhan is delivered via local scheduled notifications on the device (no FCM).
+    /// </summary>
     public static IServiceCollection AddNotificationServices(
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.Configure<FirebaseSettings>(
-            configuration.GetSection(FirebaseSettings.SectionName));
-
-        services.AddHttpClient();
-        services.AddScoped<IFcmNotificationService, FcmNotificationService>();
-        services.AddScoped<IAdhanNotificationDispatcher, AdhanNotificationDispatcher>();
-        services.AddHostedService<AdhanNotificationHostedService>();
-
         return services;
     }
 }

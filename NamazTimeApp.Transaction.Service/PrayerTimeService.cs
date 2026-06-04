@@ -183,4 +183,59 @@ public class PrayerTimeService : IPrayerTimeService
             Value = Constants.ApplicationMessages.DATA_FETCHED_SUCCESSFULLY
         });
     }
+
+    /// <inheritdoc />
+    public async Task<(List<PrayerDayTimesDto> Model, Message Message)> GetUpcomingPrayerTimesAsync(
+        string locationCode,
+        int days = 7,
+        CancellationToken ct = default)
+    {
+        var location = await _unitOfWork.Locations
+            .Query()
+            .FirstOrDefaultAsync(l => l.Code == locationCode && l.IS_ACTIVE, ct);
+
+        if (location == null)
+        {
+            return ([], MessageFactory.CreateErrorMessage(
+                string.Format(Constants.ApplicationMessages.NOT_FOUND, "Location")));
+        }
+
+        var startDate = DateOnly.FromDateTime(DateTime.UtcNow);
+        var endDate = startDate.AddDays(Math.Max(1, days) - 1);
+
+        var rows = await _unitOfWork.PrayerTimes
+            .Query()
+            .Where(pt => pt.LocationId == location.Id
+                         && pt.PrayerDate >= startDate
+                         && pt.PrayerDate <= endDate)
+            .OrderBy(pt => pt.PrayerDate)
+            .ToListAsync(ct);
+
+        if (rows.Count == 0)
+        {
+            return ([], MessageFactory.CreateErrorMessage(
+                "Prayer times not found. Please generate yearly prayer times first."));
+        }
+
+        static string FormatTime(TimeOnly time) =>
+            time.ToString("hh:mm tt", System.Globalization.CultureInfo.InvariantCulture);
+
+        var list = rows.Select(pt => new PrayerDayTimesDto
+        {
+            LocationCode = location.Code,
+            PrayerDate = pt.PrayerDate,
+            Fajr = FormatTime(pt.Fajr),
+            Sunrise = FormatTime(pt.Sunrise),
+            Dhuhr = FormatTime(pt.Dhuhr),
+            Asr = FormatTime(pt.Asr),
+            Maghrib = FormatTime(pt.Maghrib),
+            Isha = FormatTime(pt.Isha)
+        }).ToList();
+
+        return (list, new Message
+        {
+            MessageType = MessageType.Success,
+            Value = Constants.ApplicationMessages.DATA_FETCHED_SUCCESSFULLY
+        });
+    }
 }
