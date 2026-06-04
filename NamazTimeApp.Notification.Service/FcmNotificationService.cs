@@ -45,6 +45,10 @@ public class FcmNotificationService : IFcmNotificationService
             return false;
         }
 
+        var isFajr = prayerCode.Equals("FAJR", StringComparison.OrdinalIgnoreCase);
+        var channelId = isFajr ? "adhan_alarm_fajr" : "adhan_alarm_default";
+        var soundResource = isFajr ? "azan_fajr" : "azan_default";
+
         try
         {
             var accessToken = await GetAccessTokenAsync(ct);
@@ -56,20 +60,24 @@ public class FcmNotificationService : IFcmNotificationService
                     notification = new { title, body },
                     data = new Dictionary<string, string>
                     {
+                        ["type"] = "adhan",
                         ["prayerCode"] = prayerCode,
                         ["prayerName"] = prayerName,
-                        ["sound"] = soundFile,
-                        ["volume"] = volume.ToString(),
-                        ["type"] = "adhan"
+                        ["prayer"] = prayerCode.ToLowerInvariant(),
+                        ["sound"] = soundResource,
+                        ["volume"] = volume.ToString()
                     },
                     android = new
                     {
                         priority = "high",
                         notification = new
                         {
-                            channel_id = prayerCode == "FAJR" ? "adhan-fajr" : "adhan-default",
-                            sound = soundFile,
-                            default_vibrate_timings = true
+                            channel_id = channelId,
+                            sound = soundResource,
+                            notification_priority = "PRIORITY_MAX",
+                            visibility = "PUBLIC",
+                            default_vibrate_timings = true,
+                            sticky = false
                         }
                     },
                     apns = new
@@ -78,8 +86,9 @@ public class FcmNotificationService : IFcmNotificationService
                         {
                             aps = new
                             {
-                                sound = soundFile + ".mp3",
-                                content_available = true
+                                sound = $"{soundResource}.mp3",
+                                content_available = true,
+                                interruption_level = "time-sensitive"
                             }
                         }
                     }
