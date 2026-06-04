@@ -19,4 +19,12 @@ public interface IPrayerTimeService
     Task<(TodayPrayerTimesDto? Model, Message Message)> GetTodayPrayerTimesAsync(
         string locationCode,
         CancellationToken ct = default);
+
+    /// <summary>
+    /// Returns prayer times from today through the next N days for local alarm scheduling.
+    /// </summary>
+    Task<(List<PrayerDayTimesDto> Model, Message Message)> GetUpcomingPrayerTimesAsync(
+        string locationCode,
+        int days = 7,
+        CancellationToken ct = default);
 }

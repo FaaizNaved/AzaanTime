@@ -12,7 +12,6 @@ public static class ServicesInjection
     {
         services.AddScoped<ILocationService, LocationService>();
         services.AddScoped<IPrayerTimeService, PrayerTimeService>();
-        services.AddScoped<IDeviceRegistrationService, DeviceRegistrationService>();
 
         return services;
     }

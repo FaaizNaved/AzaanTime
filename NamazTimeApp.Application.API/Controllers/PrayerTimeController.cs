@@ -64,4 +64,27 @@ public class PrayerTimeController : ControllerBase
             ? Ok(response)
             : BadRequest(response);
     }
+
+    /// <summary>
+    /// Returns prayer times from today through the next N days (for local alarm scheduling).
+    /// </summary>
+    [HttpGet("upcoming/{locationCode}")]
+    public async Task<IActionResult> GetUpcomingPrayerTimes(
+        string locationCode,
+        [FromQuery] int days = 7,
+        CancellationToken ct = default)
+    {
+        var (model, message) = await _prayerTimeService.GetUpcomingPrayerTimesAsync(locationCode, days, ct);
+
+        var response = new Response<List<PrayerDayTimesDto>>
+        {
+            Model = model,
+            TotalRows = model.Count
+        };
+        response.Messages.Add(message);
+
+        return message.MessageType == MessageType.Success
+            ? Ok(response)
+            : BadRequest(response);
+    }
 }
